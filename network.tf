@@ -10,7 +10,7 @@ resource "aws_vpc" "MyVPC" {
 resource "aws_subnet" "public1" {
   vpc_id     = aws_vpc.MyVPC.id
   cidr_block = "10.0.1.0/24"
-  availibility_zone = var.az1
+  availability_zone = var.az1
 
   tags = {
     Name = "Public"
@@ -20,7 +20,7 @@ resource "aws_subnet" "public1" {
 resource "aws_subnet" "private1" {
   vpc_id     = aws_vpc.MyVPC.id
   cidr_block = "10.0.2.0/24"
-  availibility_zone = var.az2
+  availability_zone = var.az2
 
   tags = {
     Name = "Private"
@@ -55,10 +55,6 @@ resource "aws_route_table" "public-route" {
 
 resource "aws_route_table_association" "a" {
   subnet_id      = aws_subnet.public1.id
-  route_table_id = aws_route_table.public-route.id
-}
-resource "aws_route_table_association" "b" {
-  gateway_id     = aws_internet_gateway.public1.id
   route_table_id = aws_route_table.public-route.id
 }
 
