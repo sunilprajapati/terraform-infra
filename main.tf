@@ -1,8 +1,8 @@
 resource "aws_instance" "web" {
   ami           = var.aws_ami
   instance_type = var.istance_type
-  key_pair      = "AWS9"
-  availibility_zone = var.az1
+  key_name      = "AWS9"
+  availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = aws_security_group.allow_web.id
   subnet_id              = aws_subnet.public1.id
