@@ -4,14 +4,14 @@ resource "aws_instance" "web" {
   key_name      = "AWS9"
   availability_zone = var.az1
   monitoring             = true
-  #vpc_security_group_ids = [aws_security_group.allow_web.id]
-  #subnet_id              = aws_subnet.public1.id
-  #associate_public_ip_address = true
+  vpc_security_group_ids = [aws_security_group.allow_web.id]
+  subnet_id              = aws_subnet.public1.id
+  associate_public_ip_address = true
 
-  network_interface {
-   network_interface_id = aws_network_interface.web-instance-nic.id
-    device_index         = 0
-  }
+  #network_interface {
+  # network_interface_id = aws_network_interface.web-instance-nic.id
+  #  device_index         = 0
+  #}
 
 user_data = <<-EOF
                #!/bin/bash
