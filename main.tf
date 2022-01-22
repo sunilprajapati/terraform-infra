@@ -32,6 +32,13 @@ user_data = <<-EOF
                 sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
                 find /var/www -type f -exec sudo chmod 0664 {} \;
                 EOF
+  output "rahul_public_ip" {
+  value = aws_instance.web.public_ip
+}
+output "rahul_private_ip" {
+  value = aws_instance.web.private_ip
+}
+  
   tags = {
     Name = "web-instance"
   }
