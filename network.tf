@@ -106,7 +106,7 @@ resource "aws_security_group" "allow_web" {
 
 #Private IP Address
 
-resource "aws_network_interface" "nic" {
+resource "aws_network_interface" "web-instance-nic" {
   subnet_id       = aws_subnet.public1.id
   private_ips     = ["10.0.1.50"]
   security_groups = [aws_security_group.allow_web.id]
@@ -115,7 +115,7 @@ resource "aws_network_interface" "nic" {
 #Public Elastic IP Address
 resource "aws_eip" "one" {
   vpc                       = true
-  network_interface         = aws_network_interface.nic.id
+  network_interface         = aws_network_interface.web-instance-nic.id
   associate_with_private_ip = "10.0.1.50"
   depends_on = [aws_internet_gateway.MyIGW]
 }

@@ -9,7 +9,7 @@ resource "aws_instance" "web" {
   #associate_public_ip_address = true
 
   network_interface {
-   network_interface_id = aws_network_interface.nic.id
+   network_interface_id = aws_network_interface.web-instance-nic.id
     device_index         = 0
   }
 
