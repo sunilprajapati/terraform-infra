@@ -8,10 +8,10 @@ resource "aws_instance" "web" {
   subnet_id              = aws_subnet.public1.id
   associate_public_ip_address = true
 
-  network_interface {
-   network_interface_id = aws_network_interface.web-instance-nic.id
-    device_index         = 0
-  }
+  #network_interface {
+  # network_interface_id = aws_network_interface.web-instance-nic.id
+  #  device_index         = 0
+  #}
 
 user_data = <<-EOF
                #!/bin/bash
