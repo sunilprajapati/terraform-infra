@@ -5,7 +5,7 @@ resource "aws_instance" "web" {
   availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = [aws_security_group.allow_web.id]
-  subnet_id              = aws_subnet.public1.id
+  #subnet_id              = aws_subnet.public1.id
   #associate_public_ip_address = true
 
   network_interface {
