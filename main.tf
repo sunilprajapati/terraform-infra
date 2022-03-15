@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami           = var.aws_ami
   instance_type = var.istance_type
-  key_name      = "SunilPK9.ppk"
+  key_name      = "SunilPK9"
   availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = [aws_security_group.allow_web.id]
