@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami           = var.aws_ami
   instance_type = var.istance_type
-  key_name      = "AWS9"
+  key_name      = "SunilPK9.ppk"
   availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = [aws_security_group.allow_web.id]
@@ -26,7 +26,7 @@ user_data = <<-EOF
                 cp /var/www/html/index.php /var/www/html/cat
                 cp /var/www/html/.htaccess /var/www/html/cat
                 sudo systemctl start httpd
-                sudo systemctl enable httpd
+                sudo systemctl enable httpd                
                 sudo usermod -a -G apache ec2-user
                 sudo chown -R ec2-user:apache /var/www
                 sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
